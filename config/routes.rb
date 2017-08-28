@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  get 'event/title:string'
 
-  get 'event/start_time:datetime'
-
-  get 'event/end_time:datetime'
-
+  resources :events
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
