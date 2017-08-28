@@ -5,7 +5,7 @@ env:
 
 language: ruby
 rvm:
-  - 2.2.2
+  - 2.2.0
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
