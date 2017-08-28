@@ -1,49 +1,48 @@
 require 'test_helper'
 
-class EventsControllerTest < ActionController::TestCase
+class EventsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @event = events(:one)
   end
 
   test "should get index" do
-    get :index
+    get events_url
     assert_response :success
-    assert_not_nil assigns(:events)
   end
 
   test "should get new" do
-    get :new
+    get new_event_url
     assert_response :success
   end
 
   test "should create event" do
     assert_difference('Event.count') do
-      post :create, event: { end_time: @event.end_time, start_time: @event.start_time, title: @event.title }
+      post events_url, params: { event: { end_time: @event.end_time, start_time: @event.start_time, title: @event.title } }
     end
 
-    assert_redirected_to event_path(assigns(:event))
+    assert_redirected_to event_url(Event.last)
   end
 
   test "should show event" do
-    get :show, id: @event
+    get event_url(@event)
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @event
+    get edit_event_url(@event)
     assert_response :success
   end
 
   test "should update event" do
-    patch :update, id: @event, event: { end_time: @event.end_time, start_time: @event.start_time, title: @event.title }
-    assert_redirected_to event_path(assigns(:event))
+    patch event_url(@event), params: { event: { end_time: @event.end_time, start_time: @event.start_time, title: @event.title } }
+    assert_redirected_to event_url(@event)
   end
 
   test "should destroy event" do
     assert_difference('Event.count', -1) do
-      delete :destroy, id: @event
+      delete event_url(@event)
     end
 
-    assert_redirected_to events_path
+    assert_redirected_to events_url
   end
 end
