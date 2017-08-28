@@ -37,6 +37,9 @@ gem "simple_calendar", "~> 2.0"
 # Controller tests
 gem 'rails-controller-testing'
 
+# A gem for travis & codeclimate
+gem 'nio4r'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
