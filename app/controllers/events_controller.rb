@@ -15,6 +15,8 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event.start_time = params[:start_time]
+    @event.end_time = params[:start_time]
   end
 
   # GET /events/1/edit
