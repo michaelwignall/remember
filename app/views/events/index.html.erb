@@ -20,6 +20,19 @@
       <% end %>
     </td>
     <td>
+      <ul class="categories">
+        <li>
+          <%= link_to 'All', events_path %>
+        </li>
+        <% @categories.each do |category| %>
+          <li>
+            <%= link_to events_path(category: category.slug) do %>
+              <%= category.title %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+
       <table width="100%">
         <thead>
           <tr>

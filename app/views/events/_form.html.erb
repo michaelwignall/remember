@@ -26,6 +26,11 @@
     <%= form.datetime_select :end_time, id: :event_end_time %>
   </div>
 
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, @categories, :id, :title, include_blank: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
