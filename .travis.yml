@@ -13,8 +13,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - bundle exec rake test
-  - bundle exec rails test:system
+  - bundle exec rake test test:system
 
 after_script:
   # Preferably you will run test-reporter on branch update events. But
