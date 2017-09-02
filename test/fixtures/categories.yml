@@ -3,9 +3,7 @@
 one:
   title: Relationships
   slug: relationships
-  category_id: 1
 
 two:
   title: MyString
   slug: MyString
-  category_id: 1
