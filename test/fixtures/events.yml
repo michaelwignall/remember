@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  start_time: 2017-08-28 21:56:19
-  end_time: 2017-08-28 21:56:19
+  title: Wedding
+  start_time: 2017-07-17 12:00:00
+  end_time: 2017-07-17 14:00:00
 
 two:
   title: MyString
