@@ -2,22 +2,6 @@
 
 <h1>Events</h1>
 
-<section class="events-calendar">
-  <%= month_calendar events: @events do |date, events| %>
-    <%= date.strftime('%e') %>
-
-    <% events.each do |event| %>
-      <div>
-        <%= link_to event, class: 'show-event' do %>
-          <%= event.title %>
-        <% end %>
-      </div>
-    <% end %>
-
-    <%= link_to '+', new_event_path(start_time: date), class: 'new-event' %>
-  <% end %>
-</section>
-
 <section class="events-list">
   <ul class="categories">
     <li>
@@ -54,4 +38,20 @@
       <% end %>
     </tbody>
   </table>
+</section>
+
+<section class="events-calendar">
+  <%= month_calendar events: @events do |date, events| %>
+    <%= date.strftime('%e') %>
+
+    <% events.each do |event| %>
+      <div>
+        <%= link_to event, class: 'show-event' do %>
+          <%= event.title %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= link_to '+', new_event_path(start_time: date), class: 'new-event' %>
+  <% end %>
 </section>
