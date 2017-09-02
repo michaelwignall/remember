@@ -53,6 +53,11 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to event_url(@event)
   end
 
+  test "should fail update when details are missing" do
+    patch event_url(@event), params: { event: { title: '' } }
+    assert @event.reload.title != ''
+  end
+
   test "should destroy event" do
     assert_difference('Event.count', -1) do
       delete event_url(@event)
