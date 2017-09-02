@@ -1,0 +1,21 @@
+# Some comments
+Metrics/LineLength:
+  Max: 120
+
+# Allow any style of class name
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Don't require top level documentation
+Documentation:
+  Enabled: false
+
+# Empty methods should take up more than one line
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# Don't lint everything
+AllCops:
+  Exclude:
+    - db/**/*
+    - bin/**/*

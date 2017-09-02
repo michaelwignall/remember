@@ -1,16 +1,12 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :set_categories, except: [:show, :destroy]
+  before_action :set_event, only: %i[show edit update destroy]
+  before_action :set_categories, except: %i[show destroy]
 
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
-
-    if params[:category]
-      @category = Category.find_by(slug: params[:category])
-      @events = @category.events if @category
-    end
+    set_events_category if params[:category]
   end
 
   # GET /events/1
@@ -70,17 +66,23 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    def set_categories
-      @categories = Category.all
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:title, :start_time, :end_time, :category_id)
-    end
+  def set_categories
+    @categories = Category.all
+  end
+
+  def set_events_category
+    @category = Category.find_by(slug: params[:category])
+    @events = @category.events if @category
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:title, :start_time, :end_time, :category_id)
+  end
 end
