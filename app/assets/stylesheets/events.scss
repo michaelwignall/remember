@@ -1,3 +1,8 @@
+.categories,
+.calendar-heading {
+  margin: 20px 0;
+}
+
 .calendar-heading {
   text-align: center;
 
@@ -7,5 +12,20 @@
 
   a:last-child {
     float: right;
+  }
+}
+
+@media (min-width: 768px) {
+  .events-calendar,
+  .events-list {
+    width: 50%;
+  }
+
+  .events-calendar {
+    padding-right: 10px;
+  }
+
+  .events-list {
+    padding-left: 10px;
   }
 }
