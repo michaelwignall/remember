@@ -13,7 +13,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - bundle exec rspec
+  - rake test
 
 after_script:
   # Preferably you will run test-reporter on branch update events. But
