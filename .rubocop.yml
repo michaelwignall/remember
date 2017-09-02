@@ -6,6 +6,10 @@ Metrics/LineLength:
 Style/ClassAndModuleChildren:
   Enabled: false
 
+# This setting is different under rubocop and codeclimate so just disable it to prevent confusion
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
 # Don't require top level documentation
 Documentation:
   Enabled: false
