@@ -10,6 +10,11 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should allow filtering by event category" do
+    get events_url, params: { category: 'relationships' }
+    assert_response :success
+  end
+
   test "should get new" do
     get new_event_url
     assert_response :success
