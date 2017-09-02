@@ -42,7 +42,7 @@
 
 <section class="events-calendar">
   <%= month_calendar events: @events do |date, events| %>
-    <%= date.strftime('%e') %>
+    <%= date.strftime('%e') %> <br>
 
     <% events.each do |event| %>
       <div>
