@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :set_categories, only: [:index, :edit, :update, :new]
+  before_action :set_categories, except: [:show, :destroy]
 
   # GET /events
   # GET /events.json
@@ -20,10 +20,9 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @date = params[:start_time]
     @event = Event.new
-    @event.start_time = @date
-    @event.end_time = @date
+    @event.start_time = params[:start_time]
+    @event.end_time = params[:start_time]
   end
 
   # GET /events/1/edit

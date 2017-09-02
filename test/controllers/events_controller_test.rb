@@ -20,12 +20,22 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should allow dates to be passed to the new page" do
+    get new_event_url(start_time: '01/01/2017')
+    assert_response :success
+  end
+
   test "should create event" do
     assert_difference('Event.count') do
       post events_url, params: { event: { end_time: @event.end_time, start_time: @event.start_time, title: @event.title } }
     end
-
     assert_redirected_to events_url
+  end
+
+  test "missing data should fail creating an event" do
+    assert_no_difference('Event.count') do
+      post events_url, params: { event: { title: @event.title } }
+    end
   end
 
   test "should show event" do
@@ -47,7 +57,6 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Event.count', -1) do
       delete event_url(@event)
     end
-
     assert_redirected_to events_url
   end
 end
