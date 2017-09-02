@@ -8,5 +8,7 @@ class CreateEvents < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+
+    add_index :events, :category_id
   end
 end
