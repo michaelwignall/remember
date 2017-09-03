@@ -3,18 +3,18 @@
 <h1>Events</h1>
 
 <section class="events-list">
-  <ul class="categories">
-    <li>
+  <div class="categories-list">
+    <span class="categories-list-item">
       <%= link_to 'All', events_path %>
-    </li>
+    </span>
     <% @categories.each do |category| %>
-      <li>
+      <span class="categories-list-item">
         <%= link_to events_path(category: category.slug) do %>
           <%= category.title %>
         <% end %>
-      </li>
+      </span>
     <% end %>
-  </ul>
+  </div>
 
   <table width="100%">
     <thead>
