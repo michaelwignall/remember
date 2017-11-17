@@ -71,6 +71,9 @@ group :development do
 end
 
 group :test do
+  # Code analysis
+  gem "brakeman", require: false
+
   # Code coverage
   gem 'simplecov', require: false
 end

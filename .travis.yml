@@ -14,6 +14,7 @@ before_script:
 
 script:
   - bundle exec rake test test:system
+  - bundle exec brakeman
 
 after_script:
   # Preferably you will run test-reporter on branch update events. But
