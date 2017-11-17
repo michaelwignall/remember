@@ -7,16 +7,19 @@ language: ruby
 rvm:
   - 2.2.2
 
-before_script:
+stages:
+  - test
+  - analyse
+
+before_test:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
-script:
+test:
   - bundle exec rake test test:system
-  - bundle exec brakeman
 
-after_script:
+after_test:
   # Preferably you will run test-reporter on branch update events. But
   # if you setup travis to build PR updates only, you don't need to run
   # the line below
@@ -24,3 +27,6 @@ after_script:
   # In the case where travis is setup to build PR updates only,
   # uncomment the line below
   # - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+analyse:
+  - bundle exec brakeman
