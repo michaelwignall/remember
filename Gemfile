@@ -72,7 +72,7 @@ end
 
 group :test do
   # Code analysis
-  gem "brakeman", require: false
+  gem 'brakeman', require: false
 
   # Code coverage
   gem 'simplecov', require: false
